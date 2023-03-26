@@ -1,0 +1,51 @@
+#include <string>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void checkDeep() {
+	
+};
+int main()
+{
+	string inputStr = "[([][])]";
+	char* arr = new char[inputStr.size()];
+	int deep = 0;
+	int j = 0;
+	for (int i = 0; i < inputStr.size(); i++) {
+		if (inputStr[i] == '['||inputStr[i]=='(') {
+			arr[j++] = inputStr[i];
+			deep = max(deep, j);
+		}
+		else if ((inputStr[i] == ']')) {
+			if (arr[j - 1] == '[')
+			{
+				arr[j - 1] = '\0';
+				j--;
+			}
+			else
+			{
+				cout << "incorrect" << endl;
+				delete[] arr;
+				return 0;
+			}
+		}
+		else if ((inputStr[i] == ')')) {
+			if (arr[j - 1] == '(')
+			{
+				arr[j - 1] = '\0';
+				j--;
+			}
+			else
+			{
+				cout << "incorrect" << endl;
+				delete[] arr;
+				return 0;
+			}
+		}
+	}
+	delete[] arr;
+	cout << "correct" << endl;
+	cout << "deep is :"<< deep << endl;
+
+}

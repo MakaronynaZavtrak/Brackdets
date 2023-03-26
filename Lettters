@@ -1,0 +1,16 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+	//есть 2 файла, в одном из которых записаны по строкам имена
+	//а во втором написано письмо, в письме в двух местах стоят здвёздочки
+	//программа должна сформировать n файлов, где n - кол-во имён в файле имён
+	//и каждый файл - это письмо, в котором вместо звёздочек поставлено очередное имя
+	fstream textFile;
+	fstream namesFile;
+	string name;
+	textFile.open("text.txt", ios::in);
+	namesFile.open("text.txt", ios::in);
+	return 0;
+}
